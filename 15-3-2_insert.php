@@ -23,9 +23,9 @@
     echo "비밀 번호를 입력해 주세요.";
     exit;
   }
-  // 암호화
-  // $userPw = sha1('hello'.$_POST['userPw']);
-  $userPw = $_POST['userPw'];
+  // 암호화 처리
+  // $userPw = sha1('hello'.$_POST['userPw']);  // 암호화(실무용)
+  $userPw = $_POST['userPw'];   // 값 확인을 위한 개발용
 
   // 성별
   if($_POST['gender']){
