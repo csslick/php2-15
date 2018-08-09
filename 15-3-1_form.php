@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>form</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
   <style media="screen">
     label{
       display: block;
@@ -32,12 +33,13 @@
     </label>
     <label>
       <span>이메일</span>
-      <input type="email" name="email" placeholder="이메일">
+      <input type="text" name="email" placeholder="이메일">
     </label>
-    <label for="gender">성별</label>
+    <label for="gender">성별<i class="fas fa-male"></i><i class="fas fa-female"></i></label>
+
     <select class="" name="gender" id="gender">
-      <option value="m">남성</option>
-      <option value="w">여성</option>
+      <option value="m"><span>남성</span></option>
+      <option value="w"><span>여성</span></option>
     </select>
 
     <p>
