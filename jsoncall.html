@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JSON CALL</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    #data{
+      border: 1px solid #ccc;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JSON 요청</h1>
+  <p id="data">data here</p>
+  <script>
+    $(function(){
+      var d = '';
+      $.ajax({
+        url: './15-4-2b_select.php',
+        type: 'POST',
+        // dataType: 'json',
+        success: function(data){
+          console.log(data);
+          console.log(typeof data);
+          $('#data').html(data);
+          //$('<dt>').html(data.col1)
+          // d = obj;
+          // console.log(typeof obj);
+          // console.log(obj);
+        },
+        err: function(err){
+          console.log(err);
+        }
+      });
+      // console.log(d);
+    });
+  </script>
+</body>
+</html>
