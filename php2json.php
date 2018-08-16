@@ -1,3 +1,4 @@
+<!-- php에서 JSON으로 내보내기 -->
 <?php
   include_once "./15-1_connectDB.php";
 
