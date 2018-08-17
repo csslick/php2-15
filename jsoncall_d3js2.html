@@ -23,7 +23,8 @@
       bb.generate({
         data: {
           x: 'x',
-          "columns": [year, arr]
+          columns: [year, arr],
+          type: ''
         }
       });
     }
@@ -34,7 +35,6 @@
         var year = ['x'];
 
         $.each(data, function(key, val){
-          //$('body').append(val.year + ' ' + val.rain + '<br>');
           arr.push(parseInt(val.rain/10));
           year.push(val.year);
         });
