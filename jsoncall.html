@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>JSON CALL from PHP+MySQL</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
+  <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">
   <style>
     table{ border-collapse: collapse;}
     table, th, td{ border: 1px solid #ccc;}
@@ -31,6 +33,8 @@
   <script>
     $(function(){
 
+      NProgress.configure({ easing: 'ease', speed: 500 });
+      NProgress.start();
       $.ajax({
         url: './15-4-2b_select.php',
         type: 'POST',
@@ -44,6 +48,7 @@
                 '<td>' + result.email +
                 '<td>' + result.gender);
           });
+          NProgress.done();
         },
         err: function(err){
           console.log(err);

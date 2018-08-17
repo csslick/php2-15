@@ -21,7 +21,6 @@
   }
 
   // JSON인코드(utf-8)
-  // $myJSON = json_encode($memberInfo, JSON_UNESCAPED_UNICODE);
   $myJSON = json_encode($result_array, JSON_UNESCAPED_UNICODE);
   echo $myJSON;
   $conn->close();

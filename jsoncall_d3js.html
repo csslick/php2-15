@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JSON CALL from PHP+MySQL</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/billboard.js@1.0.0/dist/billboard.min.js'></script>
+  <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/billboard.js@1.0.0/dist/billboard.min.css">
+</head>
+<body>
+  <h1>JSON 요청</h1>
+  <h2>년간 강수량</h2>
+  <div id="chart"></div>
+
+  <script>
+    $(function(){
+
+      d3.csv('seoul_rain.csv', function(err, data){
+        var arr = ['colname'];
+        $.each(data, function(key, val){
+          //$('body').append(val.year + ' ' + val.rain + '<br>');
+          arr.push(parseInt(val.rain/10));
+        });
+        // console.log(arr + '\n');
+        bb.generate({
+          data: {
+            "columns": [
+              arr
+            ]
+          }
+        });
+
+      });
+
+    });
+  </script>
+</body>
+</html>
