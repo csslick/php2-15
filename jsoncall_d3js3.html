@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>JSON CALL from PHP+MySQL</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src='https://unpkg.com/nprogress@0.2.0/nprogress.js'></script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src='https://cdn.jsdelivr.net/npm/billboard.js@1.0.0/dist/billboard.min.js'></script>
+  <link rel="stylesheet" href="https://unpkg.com/nprogress@0.2.0/nprogress.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/billboard.js@1.0.0/dist/billboard.min.css">
+</head>
+<body>
+  <h1>JSON 요청</h1>
+  <h2>년간 강수량</h2>
+  <div id="chart"></div>
+
+  <script>
+
+    function render_chart(year, rain){
+      bb.generate({
+        data: {
+          x: 'x',
+          columns: [year, rain],
+          type: ''
+        }
+      });
+    }
+
+    $(function(){
+
+      $.ajax({
+        url: './php2json_seoulrain.php',
+        type: 'POST',
+        dataType: 'json',
+        success: function(data){
+          // console.log(data);
+          var rain = ['년간 강수량'];
+          var year = ['x'];
+
+          $.each(data, function(key, result){
+            // console.log(result.year + ', ' + result.rain);
+
+            year.push(result.year);
+            rain.push(parseInt(result.rain/10));
+            render_chart(year, rain);
+          });
+        },
+        err: function(err){
+          console.log(err);
+        }
+      });
+
+    }); // end$
+  </script>
+</body>
+</html>

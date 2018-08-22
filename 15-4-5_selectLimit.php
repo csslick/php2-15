@@ -53,5 +53,17 @@
   </tr>
 <?php } ?>
   </table>
+
+  <!--  페이지 버튼 -->
+  <?php
+    $sql = "SELECT * FROM customer1000";
+    $res = $conn->query($sql);
+    $totalRecord = $res->num_rows;
+    $numPage = ceil($totalRecord / $numView); // 페이지 수
+
+    for($i = 1; $i <= $numPage; $i++){
+      echo "<a href='./15-4-5_selectLimit.php?page={$i}'>{$i} </a>";
+    }
+  ?>
 </body>
 </html>

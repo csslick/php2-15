@@ -11,7 +11,7 @@
   $numPage = ceil($totalRecord / $numView);
 
   for($i = 1; $i < $numPage; $i++){
-    echo "<a href='./15-4-5_selectLimit.php?page={$i}'>{$i} </a>";
+    echo "<a href='./15-4-5_selectLimit.php?page={$i}'>{$i}</a>";
   }
 
 ?>
